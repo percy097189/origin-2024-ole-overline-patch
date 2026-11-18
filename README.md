@@ -4,6 +4,16 @@ A reversible Windows patch for unwanted horizontal bars above text in Origin gra
 
 After copying an Origin graph with **Ctrl+J** and pasting it into PowerPoint, the graph may initially look correct. Opening the embedded graph in Origin and closing the editor can add bars above axis titles, legends, and text labels. This tool patches Origin's text renderer so future embedded-object updates use the corrected rendering path.
 
+## !! Important Notice !!
+
+- This unofficial patch is a fallback of the official Origin 2024b patch. Only use it when you are not available to the official update patch.
+
+- This patch is only tested on Origin 2024 SR1 x64, build **10.1.0.178**, on both Windows 10 and Windows 11 OS. 
+
+- Your browser may warn you about the released executive when you download it, but it should be save. You can compile it by yourself if you want.
+
+- This tool is 100% vibe coded, use it at your own risk.
+
 ## Compatibility
 
 - Windows x64 with .NET Framework 4.x.
@@ -39,12 +49,13 @@ Get-FileHash .\Patch-OriginOleOverline.exe -Algorithm SHA256
 ## Apply
 
 1. Save your work and close Origin, including editors opened from PowerPoint.
-2. Open a terminal in the folder containing the downloaded executable.
+2. Open MS Powershell **as administrator** in the folder containing the downloaded executable.
 3. Run the following command, replacing the example path with your Origin installation folder.
 
 ```powershell
 .\Patch-OriginOleOverline.exe apply "C:\Program Files\OriginLab\Origin2024"
 ```
+If you have changed the installation destination, replace "C:\Program Files\OriginLab\Origin2024" to your folder that contains Origin64.exe
 
 The tool saves a verified original backup beside the DLL as
 `otext.dll.before-origin-ole-overline-patch`. Keep this file for restoration.
